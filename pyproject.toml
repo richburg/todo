@@ -1,0 +1,15 @@
+[project]
+name = "todo"
+version = "1.0.0"
+description = "Task manager CLI written in Python with Click"
+requires-python = ">=3.12"
+dependencies = [
+    "click>=8.2.1",
+]
+
+[project.scripts]
+todo = "todo:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
