@@ -1,1 +1,4 @@
-Use `--help` to receive a list of commands. You can easily build it with `pipx`. I've followed the KISS (Keep It Simple, Stupid) philosophy in this project.
+todo
+====
+
+You can easily build it with `pipx`. Use `--help` for a list of commands. I've followed the KISS principle when coding it.
