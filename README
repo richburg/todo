@@ -6,7 +6,7 @@ Installation:
 -------------
 1. Clone the repository
 2. Navigate to the project directory
-3. Run `pipx install .` to build and add it to your PATH
+3. Run `pipx/pip install .` to build and add it to your PATH
 
 Usage:
 -------------
