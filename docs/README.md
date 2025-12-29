@@ -1,7 +1,7 @@
 
 # todo
 
-Manage your tasks through the CLI.
+A command-line tool built with `click`. An easier way to manage your TODOs.
 
 
 ## Installation
