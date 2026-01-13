@@ -1,0 +1,15 @@
+[project]
+name = "todo"
+version = "0.0.0"
+description = "Manage your tasks through the CLI"
+requires-python = ">=3.12"
+dependencies = [
+    "click>=8.3.1",
+]
+
+[project.scripts]
+todo = "todo.interface:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
