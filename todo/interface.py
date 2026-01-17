@@ -3,7 +3,7 @@ import click
 from todo.models import Task
 
 from .database import Database
-from .utilities import new_task_id_formula, warn
+from .utilities import die, new_task_id_formula, warn
 
 db = Database()
 
@@ -48,6 +48,22 @@ def remove(ids: list[int]):
             tasks.remove(task)
 
 
+@cli.command(name="ed")
+@click.argument("id", type=int)
+def edit(id: int):
+    """Edit a task's description"""
+    with db as _:
+        task = db.get(id)
+        if task is None:
+            die(f"No task with ID {id}")
+            return
+        new_description = click.edit(task.description, "nano")
+        if new_description is None:
+            die("No changes made")
+            return
+        task.description = new_description.strip()
+
+
 @cli.command(name="tg")
 @click.argument("ids", type=int, nargs=-1)
 def toggle(ids: list[int]):
@@ -59,3 +75,12 @@ def toggle(ids: list[int]):
                 warn(f"No task with ID {id}")
                 continue
             task.done = not task.done
+
+
+@cli.command(name="st")
+def sort():
+    "Sort task IDs"
+    with db as tasks:
+        tasks.sort(key=lambda task: task.id and task.done)
+        for index, task in enumerate(tasks, start=1):
+            task.id = index
